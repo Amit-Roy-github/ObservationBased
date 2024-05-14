@@ -1,0 +1,33 @@
+void solve( )
+{
+	int n ; c(n); vec v( n ); vin(v);
+	int mx = 0 , s = 0 ;
+ 
+	priority_queue<vec>q;
+	int j = 0 ;
+	for ( auto a : v ) {j++; if (a > 0 )q.push({a, j});}
+ 
+	vecc res ;
+	while ( si(q)   )
+	{
+		auto t = q.top(); q.pop();
+		int a = t[0] ;
+		if ( si(q) < a )
+		{
+			im ; return ;
+		}
+		vecc tem ;
+		while ( a )
+		{
+			auto x = q.top(); q.pop() ;
+			res.pb({t[1], x[1]});
+			if ( --x[0] )tem.pb(x) ;
+			a--;
+		}
+		for ( auto i : tem )q.push(i) ;
+	}
+ 
+	p(si(res));
+	for ( auto i : res )pp(i[0], i[1]);
+ 
+}
